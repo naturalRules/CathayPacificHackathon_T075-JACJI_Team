@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <title>航班废弃物数据收集</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">填写航班废弃物信息</h1>
+    <form id="wasteForm" method="post" action="/">
+        <div class="row mb-3">
+            <div class="col">
+                <label for="FlightNumber" class="form-label">航班号</label>
+                <input type="text" class="form-control" name="FlightNumber" required>
+            </div>
+            <div class="col">
+                <label for="DateTime" class="form-label">日期和时间</label>
+                <input type="datetime-local" class="form-control" name="DateTime" required>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="WasteType" class="form-label">废弃物类型</label>
+            <select class="form-select" name="WasteType" required>
+                <option value="Plastic">Plastic</option>
+                <option value="Paper">Paper</option>
+                <option value="Metal">Metal</option>
+                <option value="Glass">Glass</option>
+                <option value="Food">Food</option>
+                <option value="General">General</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="WasteWeight" class="form-label">废弃物重量 (kg)</label>
+            <input type="number" step="0.01" class="form-control" name="WasteWeight">
+        </div>
+        <div class="mb-3">
+            <label for="WasteSource" class="form-label">废弃物来源</label>
+            <select class="form-select" name="WasteSource" required>
+                <option value="Cleaning">Cleaning</option>
+                <option value="OnboardService">Onboard Service</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="AircraftType" class="form-label">飞机类型</label>
+            <input type="text" class="form-control" name="AircraftType">
+        </div>
+        <div class="mb-3">
+            <label for="DisposalMethod" class="form-label">处理方式</label>
+            <select class="form-select" name="DisposalMethod" required>
+                <option value="Recycling">Recycling</option>
+                <option value="Reusable">Reusable</option>
+                <option value="Dispose">Dispose</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="FlightOrigin" class="form-label">航班起点</label>
+            <input type="text" class="form-control" name="FlightOrigin">
+        </div>
+        <div class="mb-3">
+            <label for="FlightDestination" class="form-label">航班终点</label>
+            <input type="text" class="form-control" name="FlightDestination">
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label for="PassengerCount" class="form-label">乘客人数</label>
+                <input type="number" class="form-control" name="PassengerCount">
+            </div>
+            <div class="col">
+                <label for="CrewCount" class="form-label">机组人数</label>
+                <input type="number" class="form-control" name="CrewCount">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="FlightDuration" class="form-label">飞行持续时间 (小时)</label>
+            <input type="number" step="0.01" class="form-control" name="FlightDuration">
+        </div>
+        <div class="mb-3">
+            <label for="Notes" class="form-label">备注</label>
+            <textarea class="form-control" name="Notes" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+</div>
+
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('wasteForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // 阻止表单默认提交
+
+        // 这里可以用 AJAX 提交表单数据
+        // 但是为了演示，我们就直接弹出提示
+
+        alert('提交成功！');
+
+        // 可以在此处模拟表单提交:
+        this.submit();  // 如果需要真正提交表单，去掉这行的"event.preventDefault()"即可
+    });
+</script>
+</body>
+</html>
